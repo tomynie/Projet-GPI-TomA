@@ -7,20 +7,6 @@ a partir d'un modele atomique (fichier PDB), puis cherche ce template dans
 l'image en faisant tourner le template a differents angles. Les particules
 trouvees sont extraites et sauvegardees, avec un rapport complet des resultats.
 
-Utilisation typique :
-    python TA-cryo-code.py                            -> telecharge le fichier et tourne seul
-    python TA-cryo-code.py --pause                    -> s'arrete a chaque figure
-    python TA-cryo-code.py --mrc mon_fichier.mrc      -> utilise un fichier local
-    python TA-cryo-code.py --pdb 6BDF --threshold 0.5 -> change la proteine et le seuil
-
-Arguments disponibles :
-    --mrc          Chemin vers un fichier MRC local (optionnel)
-    --gdrive       File ID Google Drive pour telecharger le MRC automatiquement
-    --pdb          Code PDB de la proteine cible (defaut : 6BDF)
-    --pixel_size   Taille d'un pixel en Angstroms apres binning (defaut : 2.64)
-    --threshold    Seuil de detection NCC entre 0 et 1 (defaut : 0.55)
-    --bin_factor   Facteur de reduction de l'image (defaut : 4)
-    --pause        Afficher chaque figure et attendre avant de continuer
 """
 
 import os
@@ -105,10 +91,7 @@ def parse_args():
 
 def save_and_show(fig, filename, results_dir, pause=False):
     """
-    Sauvegarde une figure dans le dossier de resultats.
-    Si --pause est active, la fenetre s'ouvre et on attend que l'utilisateur
-    la ferme avant de continuer. Sinon, on sauvegarde en silence et on passe
-    a la suite sans interrompre le pipeline.
+    Sauvegarde une figure dans le dossier resultats_TA.
     """
     path = os.path.join(results_dir, filename)
     fig.savefig(path, dpi=150, bbox_inches="tight")
@@ -120,7 +103,7 @@ def save_and_show(fig, filename, results_dir, pause=False):
 
 
 def separator(title):
-    """Affiche un separateur visuel dans le terminal pour bien distinguer les etapes."""
+    """Affiche un separateur visuel dans le terminal pour bien distinguer les étapes."""
     print()
     print("=" * 60)
     print(f"  {title}")
@@ -413,10 +396,10 @@ def run_ncc(img_final, template_pour_ncc, threshold, results_dir, pause=False):
     La NCC (Normalized Cross-Correlation) mesure la ressemblance entre le template
     et chaque region de l'image. Le score varie de -1 (anti-correlation parfaite)
     a +1 (correspondance parfaite). En cryo-EM, un score > 0.3 est generalement
-    considere comme une bonne detection.
+    considere comme une bonne détection.
 
     pad_input=True garantit que la carte de correlation a la meme taille que
-    l'image d'entree, ce qui facilite la correspondance des coordonnees.
+    l'image d'entrée, ce qui facilite la correspondance des coordonnees.
     """
     separator("ETAPE 3 : NCC - Normalized Cross-Correlation")
 
@@ -616,7 +599,6 @@ def extract_particles(img_final, pics_orientes, carte_max_ncc, carte_angles,
 
     On produit ensuite :
     - Une grille avec toutes les particules triees par score NCC decroissant
-      (la meilleure en or, les autres en blanc)
     - Une comparaison template vs meilleure particule
     - Une image moyenne de toutes les particules, qui estompe le bruit et fait
       ressortir la forme commune : si les detections sont bonnes, on devrait

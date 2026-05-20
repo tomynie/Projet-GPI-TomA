@@ -25,4 +25,4 @@ Il est aussi possible de modifier les paramètres de détection en ajoutant --pd
 
 exemple : python TA-cryo-code.py --mrc "Fichier MRC\14sep05c_00024sq_00006hl_00003es_c.mrc" --pdb 6BDF --pixel_size 2.64 --threshold 0.55
 
-A chaque étape l'image correspondante va apparaître. Il suffit de quitter l'image pour que le code continue. Tous les éléments affichés sont stockés dans un répertoire résultat pour les visualisés plus tard. 
+PS: On peut utilisé l'option --pause. A chaque étape l'image correspondante va apparaître. Il suffit de quitter l'image pour que le code continue. Tous les éléments affichés sont stockés dans un répertoire résultat-TA pour les visualisés plus tard. 

@@ -16,8 +16,10 @@ python -m pip install biopython mrcfile gdown scikit-image (préciser la version
 Ensuite, se placer dans le dossier du projet :
 cd "C:\Users\....\....
 
-Puis lancer le script en précisant le fichier MRC :
-python TA-cryo-code.py --mrc "Fichier MRC\14sep05c_00024sq_00006hl_00003es_c.mrc"
+Puis lancer le script en précisant le fichier MRC ou avec un code gdrive :
+Code pour un fichier : python TA-cryo-code.py --mrc "Fichier MRC\14sep05c_00024sq_00006hl_00003es_c.mrc"
+Code pour un file_ID : python TA-cryo-code.py --gdrive 1Qj30jSXcHEpkzE04cisbP6ljtnQ2Ausr
+
 
 Il est aussi possible de modifier les paramètres de détection en ajoutant --pdb, --threshold ou --pixel_size à la commande. Les résultats sont sauvegardés automatiquement dans un dossier results/.
 

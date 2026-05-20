@@ -4,20 +4,21 @@ Projet GPI noté
 
 > **Objectif principal :** Développer nos compétences en programmation.
 
-Préréquis : 
-La première cellule du notebook s'occupe d'installer toutes les bibliothèques dont on a besoin : biopython pour lire les fichiers PDB, mrcfile pour ouvrir les micrographies, gdown pour télécharger les fichiers depuis Google Drive, et scikit-image pour le traitement d'image et le calcul de la NCC.
+Pour le notebook (Google Colab) :
 
-Le modèle atomique 6BDF est récupéré automatiquement depuis le site RCSB, donc pas besoin de s'en occuper. En revanche, le fichier de la micrographie au format .mrc doit être fourni manuellement. Il faut l'uploader dans l'environnement de travail avant de lancer le code.
+Aucune installation manuelle n'est nécessaire. La première cellule du notebook s'occupe d'installer automatiquement toutes les bibliothèques. Il suffit d'ouvrir le fichier dans Google Colab, d'uploader le fichier MRC dans l'environnement, de bien modifier le fil_id en fonction du fichier puis de lancer toutes les cellules dans l'ordre avec Ctrl+F9. Le modèle PDB se télécharge tout seul depuis le site RCSB.
 
-Une fois le fichier en place, il suffit de lancer toutes les cellules dans l'ordre depuis la cellule 0, et tout le pipeline tourne sans avoir à toucher quoi que ce soit.
+Pour le script terminal (VS Code) :
 
-Comment lancer le code dans le terminal : 
-
-Avant tout, installe les bibliothèques nécessaires:
+Pour lancer le code depuis le terminal, il faut d'abord installer les bibliothèques manuellement une seule fois :
 python -m pip install biopython mrcfile gdown scikit-image
 
-Ensuite place-toi dans le bon dossier :
-cd "C:\Users\.../..."
+Ensuite, se placer dans le dossier du projet :
+cd "C:\Users\....\....
 
-Puis lance le code :
+Puis lancer le script en précisant le fichier MRC :
 python TA-cryo-code.py --mrc "Fichier MRC\14sep05c_00024sq_00006hl_00003es_c.mrc"
+
+Il est aussi possible de modifier les paramètres de détection en ajoutant --pdb, --threshold ou --pixel_size à la commande. Les résultats sont sauvegardés automatiquement dans un dossier results/.
+
+exemple : python TA-cryo-code.py --mrc "Fichier MRC\14sep05c_00024sq_00006hl_00003es_c.mrc" --pdb 6BDF --pixel_size 2.64 --threshold 0.55

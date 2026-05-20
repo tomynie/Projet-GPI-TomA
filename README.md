@@ -6,7 +6,7 @@ Projet GPI noté
 
 Pour le notebook (Google Colab) :
 
-Aucune installation manuelle n'est nécessaire. La première cellule du notebook s'occupe d'installer automatiquement toutes les bibliothèques. Il suffit d'ouvrir le fichier dans Google Colab, d'uploader le fichier MRC dans l'environnement, de bien modifier le fil_id en fonction du fichier puis de lancer toutes les cellules dans l'ordre avec Ctrl+F9. Le modèle PDB se télécharge tout seul depuis le site RCSB.
+Aucune installation manuelle n'est nécessaire. La première cellule du notebook s'occupe d'installer automatiquement toutes les bibliothèques. Il suffit d'ouvrir le fichier dans Google Colab, d'uploader le fichier MRC dans l'environnement, de bien modifier le fil_id en fonction du fichier puis de lancer toutes les cellules dans l'ordre. Le modèle PDB se télécharge tout seul depuis le site RCSB, il faut juste modifier le code en fonction du PDB voulu.
 
 Pour le script terminal (VS Code) :
 

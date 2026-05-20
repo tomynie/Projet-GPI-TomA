@@ -10,3 +10,14 @@ La première cellule du notebook s'occupe d'installer toutes les bibliothèques 
 Le modèle atomique 6BDF est récupéré automatiquement depuis le site RCSB, donc pas besoin de s'en occuper. En revanche, le fichier de la micrographie au format .mrc doit être fourni manuellement. Il faut l'uploader dans l'environnement de travail avant de lancer le code.
 
 Une fois le fichier en place, il suffit de lancer toutes les cellules dans l'ordre depuis la cellule 0, et tout le pipeline tourne sans avoir à toucher quoi que ce soit.
+
+Comment lancer le code dans le terminal : 
+
+Avant tout, installe les bibliothèques nécessaires:
+python -m pip install biopython mrcfile gdown scikit-image
+
+Ensuite place-toi dans le bon dossier :
+cd "C:\Users\.../..."
+
+Puis lance le code :
+python TA-cryo-code.py --mrc "Fichier MRC\14sep05c_00024sq_00006hl_00003es_c.mrc"

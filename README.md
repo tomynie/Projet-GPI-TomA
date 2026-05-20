@@ -25,4 +25,4 @@ Il est aussi possible de modifier les paramètres de détection en ajoutant --pd
 
 exemple : python TA-cryo-code.py --gdrive 1Qj30jSXcHEpkzE04cisbP6ljtnQ2Ausr --pdb 6BDF --pixel_size 2.64 --threshold 0.55
 
-PS: On peut utilisé l'option --pause. A chaque étape l'image correspondante va apparaître. Il suffit de quitter l'image pour que le code continue. Tous les éléments affichés sont stockés dans un répertoire résultat-TA pour les visualisés plus tard. 
+PS: On peut utilisé l'option --pause. A chaque étape l'image correspondante va apparaître. Il suffit de quitter l'image pour que le code continue. Tous les éléments affichés (ou non en fonction de l'option) sont stockés dans un répertoire résultat-TA pour les visualisés plus tard. 
